@@ -4,6 +4,7 @@
 </div>
 
 ## Taller 2
+----------------------------------
 
 ### 1. Desarrollar un programa que ingrese un número entero n y separe todos los digitos que componen el número. **Pista:** Utilice los operadores módulo (%) y división entera (//).
 ```python
@@ -72,6 +73,7 @@ def separador_digitos(numero: int = "")-> str: # Se crea una función que separa
 ```
 -  cree la funcion reducida separar_digitos que basandose en si es impar se aplica la funcion (numero // 10**(i-1)%10) que recortaba primero los numeroes desde la izquierda y luego desde la derecha hasta el numero i si la funcion era par utilizaba esta otra funcion ((numero % 10**(i)) // 10**(i-1)) que recortaba la funcion por la derecha hasta el numero i y luego la recortaba por la izquierda hasta el numero i
 - luego cree un for que unia en un texto separado por un espacio los digitos que estaban en la lista digitos
+-----------------------------------
 ### 2. Desarrollar un programa que ingrese un número flotante n y separe su parte entera de la parte decimal, y luego entregue los dígitos tanto de la parte entera como de la decimal.
 ```python
 def separador_de_digitos(numeroFloat): # reutilice parte del punto anterior
@@ -86,12 +88,12 @@ if __name__ == "__main__":
 ```
 #### explicacion:
 - cree la funcion que para la parte entera del numero simplemente hace la division entera del numero entre 1 (n//1) y para la parte decimal le resto al numero original la parte entera y me devuelve solamente la parte decimal
-  
+----------------------------------
 ### 3. Desarrollar un programa que permita ingresar dos números enteros y determinar si se tratan de números espejos, definiendo números espejos como dos números a y b tales que a se lee de izquierda a derecha igual que se lee b de derecha a izquierda, y viceversa.
 ```python
 ```
 #### explicacion:
-
+----------------------------------
 ### 4. Diseñar una función que permita calcular una aproximación de la función coseno alrededor de 0 para cualquier valor x (real), utilizando los primeros n términos de la serie de Taylor. **nota:** use *math* para traer la función coseno y mostrar la diferencia entre el valor real y la aproximación. Calcule con cuántos términos de la serie (i.e: cuáles valores de n), se tienen errores del 10%, 1%, 0.1% y 0.001%.
 $$cos(x) \approx cos(x,n) \approx \sum_{i=0}^{n} (-1)^i \frac{x^{2i}}{(2i)!}$$
 ```python
@@ -155,6 +157,7 @@ if __name__ == "__main__":
     print(f"el resultado aproximado de la funcion coseno es: {funcion_coseno(numeroX,numeroN)}, el verdadero es: {math.cos(numeroX)} y el rango de error es {rango_de_error(numeroX,numeroN)}%")
 ```
 #### explicacion:
+----------------------------------
 ### 5. Desarrollar un programa que permita determinar el Minimo Comun Multiplo de dos numeros enteros. Abordar el problema desde una perpectiva tanto iterativa como recursiva. **Pista:** Puede ser de utilidad chequear el [Algoritmo de Euclides](https://es.wikipedia.org/wiki/Algoritmo_de_Euclides) para el cálculo del Máximo Común Divisor, y revisar cómo se relaciona este último con el Mínimo Común Múltiplo.
 ```python
 """
@@ -205,14 +208,17 @@ if __name__ == "__main__":
 ```
 #### explicacion:
 - por hacer
+----------------------------------
 ### 6. Desarrollar un programa que determine si en una lista existen o no elementos repetidos. **Pista:** Maneje valores booleanos y utilice el operador *in*.
 ```python
 ```
 #### explicacion:
+----------------------------------
 ### 7. Desarrollar un programa que determine si en una lista se encuentra una cadena de caracteres con dos o más vocales. Si la cadena existe debe imprimirla y si no existe debe imprimir 'No existe'.
 ```python
 ```
 #### explicacion:
+----------------------------------
 ### 8. Desarrollar un programa que dadas dos listas determine que elementos tiene la primer lista que no tenga la segunda lista. **Ejemplo:**
 <center>
 <table border="1">
@@ -233,7 +239,7 @@ salida: [1, True]
 ```python
 ```
 #### explicacion:
-
+----------------------------------
 ### 9. Resolver el punto 7 del [taller 1](https://github.com/fegonzalez7/pdc_unal_clase8) usando operaciones con vectores.
 ```python
 def promedio(*promedio_args)-> float:
@@ -283,12 +289,12 @@ if __name__ == "__main__":
 ```
 #### explicacion:
 - cree las funciones con el (*args) para poder anadir cualquier cantidad de datos e hice la logica de cada funcion trabajando con vectores (el mismo codigo tiene explicacion de cada funcion).
-  
+----------------------------------
 ### 10. Suponga que se tiene una lista A con ciertos números enteros. Desarrolle una función que, independientemente de los números que se encuentran en la lista A, tome aquellos números que son múltiplos de 3 y los guarde en una lista nueva, la cual debe ser **retornada** por la función. Implemente la perspectiva de un *patrón de acumulación* y también de *comprensión de listas*. **Desafío:** Si ya lo logró, inténtelo ahora sin utilizar el módulo (%). **Pista:** Un número es multiplo de 3 si la suma de sus dígitos también lo es, ¿verdad?
 ```python
 ```
 #### explicacion:
-
+----------------------------------
 ## Bono
 ### 11. Desarrollar un algoritmo que determine si una matriz es mágica. Se dice que una matriz cuadrada es mágica si la suma de cada una de sus filas, de cada una de sus columnas y de cada diagonal es igual.
 ```python
