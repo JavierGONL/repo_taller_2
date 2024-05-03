@@ -157,8 +157,54 @@ if __name__ == "__main__":
 #### explicacion:
 ### 5. Desarrollar un programa que permita determinar el Minimo Comun Multiplo de dos numeros enteros. Abordar el problema desde una perpectiva tanto iterativa como recursiva. **Pista:** Puede ser de utilidad chequear el [Algoritmo de Euclides](https://es.wikipedia.org/wiki/Algoritmo_de_Euclides) para el cálculo del Máximo Común Divisor, y revisar cómo se relaciona este último con el Mínimo Común Múltiplo.
 ```python
+"""
+hice los algoritmos de MCD para entender mejor como hacer el MCM
+y los uso para resolver el mcm de varias formas
+"""
+def maximo_comun_divisor_recursivo_resta(numeroA,numeroB)->int: # utiliza el algoritmo original de euclides
+    # verifico cual es el mayor de ambos para que el algoritmo funcione
+    if numeroA < numeroB:
+        numeroA, numeroB = numeroB , numeroA
+    elif numeroA == numeroB: # cuando son iguales es que el mcm es cualquiera de los dos
+        return print(f"el maximo comun divisor es {numeroA}")
+    numeroC = numeroA - numeroB # se va restando y el resultado se coloca de nuevo en la funcion
+    maximo_comun_divisor_recursivo_resta(numeroC,numeroB)# calcula todo lo anterior hasta que numeroA y B sean iguales 
+def maximo_comun_divisor_recursivo_division(numeroA,numeroB): # usa el algoritmo del teorema de Lamé
+    # verifico cual es el mayor de ambos para que el algoritmo funcione
+    if numeroA < numeroB:
+        numeroA, numeroB = numeroB , numeroA
+    if numeroA % numeroB == 0: # cuando el resuduo es igual a 0 cae en el return y retorna el numeroB 
+        return print(f"el maximo comun divisor es {numeroB}")
+    maximo_comun_divisor_recursivo_division(numeroB,numeroA % numeroB) # se invoca la funcion pasando los valores de B y el residuo de A / B
+""" el algoritmo para sacar mcm del algoritmo para sacar mcd de euclides es 
+    simplemente usar la formula mcm = ( A * B ) / mcd
+"""
+def minimo_comun_multiplo_recursivo(numeroA,numeroB)->int:
+    return
+def minimo_comun_multiplo_formula(numeroA,numeroB)->int:# en este uso la formula mcm = (AxB )/ mcd
+    mcm = (numeroA*numeroB)/maximo_comun_divisor_recursivo_division(numeroA,numeroB)
+    return mcm
+def minimo_comun_multiplo_iterativo(numeroA,numeroB)->int:
+    # verifico cual es el numero mayor para verificar si ese es mcm de ambos
+    if numeroA > numeroB:
+        numeroC = numeroA
+    else:
+        numeroC = numeroB
+    while True:
+        # se revisa que el mayor de ambos dividido entre a y b el residuo sea 0 
+        if  numeroC%numeroA == 0 and numeroC % numeroB == 0:
+            break
+        # no se encontro el mcm entonces se suma 1 al mayor hasta que sea el mcm de ambos
+        numeroC += 1
+    return print(f"el mcm entre {numeroA} y el numero {numeroB}, es {numeroC}")
+
+if __name__ == "__main__":
+    numeroA = int(input("ingrese un numero: "))
+    numeroB = int(input("ingrese un numero: "))
+    maximo_comun_divisor_recursivo_division(numeroA,numeroB)
 ```
 #### explicacion:
+- por hacer
 ### 6. Desarrollar un programa que determine si en una lista existen o no elementos repetidos. **Pista:** Maneje valores booleanos y utilice el operador *in*.
 ```python
 ```
@@ -190,9 +236,54 @@ salida: [1, True]
 
 ### 9. Resolver el punto 7 del [taller 1](https://github.com/fegonzalez7/pdc_unal_clase8) usando operaciones con vectores.
 ```python
+def promedio(*promedio_args)-> float:
+    # utilizo una variable para ir sumando cada numero del arreglo
+    suma = 0
+    for i in promedio_args:
+        suma += i
+    return suma / len(promedio_args) # se retorna la suma dividida por la longitud del arreglo
+def mediana(*mediana_args)->float:
+    sorted(mediana_args)
+    if len(mediana_args) % 2 != 0:#si la mediana no es par
+        mediana = len(mediana_args) // 2
+        return mediana_args[mediana]
+    else: # si la mediana es par 
+        mediana = len(mediana_args) // 2
+        return (mediana_args[mediana - 1] + mediana[mediana])/2
+def promedio_multiplicativo(*promedio_m_args)->float:
+    multiplicacion = 0 #creo una variable para ir acomulando la multiplicacion de cada numero del arreglo
+    for i in (promedio_m_args):
+        multiplicacion *= i
+    return multiplicacion ** (1/len(promedio_m_args)) # devuelvo la raiz n (n=longitud del arreglo)de la multiplicacion 
+def ordenar_mayor_menor(*ordenar_M_m):
+    return sorted(ordenar_M_m , reverse=True) # aca simplemente ordeno el arreglo y le coloco que sea de mayor a menor
+def ordenar_menor_mayor(*ordenar_m_M):
+    return sorted(ordenar_m_M) # aca un sorted normal y de una lo ordena de menor a mayor
+def potencia_mayor_elevado_menor(*potencia_args)->int:
+    potencia_args = sorted(potencia_args) # ordeno el arreglo
+    return potencia_args[-1]**potencia_args[0] # retorno el mayor que estando ordenado es el indice[-1] elevado al indice[0] que es el menor
+def raiz_cubica_menor_numero(*raiz_args):
+    raiz = sorted(raiz_args) # primero ordeno para saber que el menor esta en el indice [0]
+    return raiz[0]**(1/3) # retorno el indice [0] elevado al 1/3 que es lo equivalente a raiz cubica 
+if __name__ == "__main__":
+    # el codigo que use para verificar que funcione cada uno
+    numeroA = int(input(" ingrese un numero: "))
+    numeroB = int(input(" ingrese un numero: "))
+    numeroC = int(input(" ingrese un numero: "))
+    numeroD = int(input(" ingrese un numero: "))
+    numeroE = int(input(" ingrese un numero: "))
+   
+    print(f"el promedio de {numeroA,numeroB,numeroC,numeroD,numeroE}, es {promedio(numeroA,numeroB,numeroC,numeroD,numeroE)} ")
+    print(f"la mediana de {numeroA,numeroB,numeroC,numeroD,numeroE} es {mediana(numeroA,numeroB,numeroC,numeroD,numeroE)}")
+    print(f"el promedio multiplicativo de {numeroA,numeroB,numeroC,numeroD,numeroE} es {promedio_multiplicativo(numeroA,numeroB,numeroC,numeroD,numeroE)}")
+    print(f"los numeros {numeroA,numeroB,numeroC,numeroD,numeroE} ordenados de mayor a menor es {ordenar_mayor_menor(numeroA,numeroB,numeroC,numeroD,numeroE)} ")
+    print(f"los numeros {numeroA,numeroB,numeroC,numeroD,numeroE} ordenados de menor a mayor es {ordenar_menor_mayor(numeroA,numeroB,numeroC,numeroD,numeroE)} ")
+    print(f"la potencia del mayor elevado al menor es {potencia_mayor_elevado_menor(numeroA,numeroB,numeroC,numeroD,numeroE)} ")
+    print(f"la raiz cubica del menor numero es {raiz_cubica_menor_numero(numeroA,numeroB,numeroC,numeroD,numeroE)} ")
 ```
 #### explicacion:
-
+- cree las funciones con el (*args) para poder anadir cualquier cantidad de datos e hice la logica de cada funcion trabajando con vectores (el mismo codigo tiene explicacion de cada funcion).
+  
 ### 10. Suponga que se tiene una lista A con ciertos números enteros. Desarrolle una función que, independientemente de los números que se encuentran en la lista A, tome aquellos números que son múltiplos de 3 y los guarde en una lista nueva, la cual debe ser **retornada** por la función. Implemente la perspectiva de un *patrón de acumulación* y también de *comprensión de listas*. **Desafío:** Si ya lo logró, inténtelo ahora sin utilizar el módulo (%). **Pista:** Un número es multiplo de 3 si la suma de sus dígitos también lo es, ¿verdad?
 ```python
 ```
