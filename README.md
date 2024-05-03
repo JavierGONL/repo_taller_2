@@ -74,18 +74,99 @@ def separador_digitos(numero: int = "")-> str: # Se crea una función que separa
 - luego cree un for que unia en un texto separado por un espacio los digitos que estaban en la lista digitos
 ### 2. Desarrollar un programa que ingrese un número flotante n y separe su parte entera de la parte decimal, y luego entregue los dígitos tanto de la parte entera como de la decimal.
 ```python
-
-
-
+def separador_de_digitos(numeroFloat): # reutilice parte del punto anterior
+    # se divide el numero racional por la division entera de 1 y devuelve solo la parte entera del numero
+    separador_parte_entera = numeroFloat // 1
+    # se le resta la parte entera al numero racional y el resultado son los decimales
+    separador_parte_decimal = float(numeroFloat - int(separador_parte_entera))
+    return print(f"la parte entera es: { separador_parte_entera} y la parte decimal es: {separador_parte_decimal}")
+if __name__ == "__main__":
+    numeroFloat = float(input("ingrese un numero racional : "))
+    separador_de_digitos(numeroFloat)
 ```
+#### explicacion:
+- cree la funcion que para la parte entera del numero simplemente hace la division entera del numero entre 1 (n//1) y para la parte decimal le resto al numero original la parte entera y me devuelve solamente la parte decimal
+  
 ### 3. Desarrollar un programa que permita ingresar dos números enteros y determinar si se tratan de números espejos, definiendo números espejos como dos números a y b tales que a se lee de izquierda a derecha igual que se lee b de derecha a izquierda, y viceversa.
+```python
+```
+#### explicacion:
 
 ### 4. Diseñar una función que permita calcular una aproximación de la función coseno alrededor de 0 para cualquier valor x (real), utilizando los primeros n términos de la serie de Taylor. **nota:** use *math* para traer la función coseno y mostrar la diferencia entre el valor real y la aproximación. Calcule con cuántos términos de la serie (i.e: cuáles valores de n), se tienen errores del 10%, 1%, 0.1% y 0.001%.
 $$cos(x) \approx cos(x,n) \approx \sum_{i=0}^{n} (-1)^i \frac{x^{2i}}{(2i)!}$$
+```python
+import math
+# Se importa la librería math para poder usar la función coseno
+def factorial (numeroN = int)->int:
+    # Se crea una función que calcula el factorial de un número
+    if numeroN == 0:
+        return 1
+    else:
+        return numeroN * factorial(numeroN - 1) # se usa recursividad para calcular el factorial
+def rango_de_error(numeroX, numeroN): 
+    # Se crea una función que calcula el rango de error de la serie de Maclaurin del coseno con respecto a la función coseno de la librería math 
+    maclaurin = funcion_coseno(numeroX, numeroN)
+    math_cos = math.cos(numeroX)
+    error_relativo = (math_cos - maclaurin) / math_cos # Se calcula el error relativo dividiendo la diferencia entre el coseno de math y el coseno de la serie de Maclaurin entre el coseno de math
+    porcentaje_error = round(abs(error_relativo) * 100,5) # Se redondea el valor absoluto del error relativo multiplicado por 100 a 5 decimales
+    return porcentaje_error
+def funcion_coseno(numeroX , numeroN : int) -> float:
+    # Se crea una función que calcula el coseno de un numero usando la serie de Maclaurin con un numero de términos dado
+    resultado = 0
+    for i in range(numeroN + 1):
+        coseno_serie_maclaurin = ((-1) ** i) * ((numeroX) ** (2 * i)) / factorial(2 * i)
+        resultado += coseno_serie_maclaurin
+    return resultado
+def iteraciones(numeroX: float) -> int:
+    # se crea una funcion que calcula el numero de iteracion necesacirias para que el rango de error sea mas o nemos 10% , 1% , 0.1% y 0.01% , cuando es menor a 0.001 se detiene
+    numeroN = 0
+    # Se inicializan las variables que indican si ya se imprimio el resultado para el rango de error correspondiente y asi no imprimir en bucle estas variables
+    print_10 = False
+    print_1 = False
+    print_01 = False
+    print_001 = False
+    while True:
+        # se inicializa el bucle y se calcula el rango de error y el resultado de la funcion coseno con el numero de iteraciones actual 
+        numeroN += 1
+        error = rango_de_error(numeroX, numeroN)
+        resultado = funcion_coseno(numeroX, numeroN)
+        # inica el if para imprimir los resultados de los rangos de error segun el % de error que haya en esa iteracion
+        if error <= 10 and not print_10:
+            print(f"el rango de error es: {error} , el número de términos es: {numeroN} y el resultado es: {resultado}")
+            print_10 = True
+        elif error <= 1 and not print_1:
+            print(f"el rango de error es: {error} , el número de términos es: {numeroN} y el resultado es: {resultado}")
+            print_1 = True
+        elif error <= 0.1 and not print_01:
+            print(f"el rango de error es: {error} , el número de términos es: {numeroN} y el resultado es: {resultado}")
+            print_01 = True
+        elif error <= 0.01 and not print_001:
+            print(f"el rango de error es: {error} , el número de términos es: {numeroN} y el resultado es: {resultado}")
+            print_001 = True
+        elif error <= 0.001:
+            # cuando el % de error esta entre lo que queremos se detiene el bucle 
+            break
+    # se retorna el numero de iteraciones
+    return numeroN
+if __name__ == "__main__":
+    # se pide que se ingrese un numero y se llama a la funcion iteraciones con el numero ingresado y se imprime el resultado
+    numeroX = float(input("ingrese un numero: "))
+    numeroN  = iteraciones(numeroX)
+    print(f"el resultado aproximado de la funcion coseno es: {funcion_coseno(numeroX,numeroN)}, el verdadero es: {math.cos(numeroX)} y el rango de error es {rango_de_error(numeroX,numeroN)}%")
+```
+#### explicacion:
 ### 5. Desarrollar un programa que permita determinar el Minimo Comun Multiplo de dos numeros enteros. Abordar el problema desde una perpectiva tanto iterativa como recursiva. **Pista:** Puede ser de utilidad chequear el [Algoritmo de Euclides](https://es.wikipedia.org/wiki/Algoritmo_de_Euclides) para el cálculo del Máximo Común Divisor, y revisar cómo se relaciona este último con el Mínimo Común Múltiplo.
+```python
+```
+#### explicacion:
 ### 6. Desarrollar un programa que determine si en una lista existen o no elementos repetidos. **Pista:** Maneje valores booleanos y utilice el operador *in*.
-### 7. Desarrollar un programa que determine si en una lista se encuentra
-una cadena de caracteres con dos o más vocales. Si la cadena existe debe imprimirla y si no existe debe imprimir 'No existe'.
+```python
+```
+#### explicacion:
+### 7. Desarrollar un programa que determine si en una lista se encuentra una cadena de caracteres con dos o más vocales. Si la cadena existe debe imprimirla y si no existe debe imprimir 'No existe'.
+```python
+```
+#### explicacion:
 ### 8. Desarrollar un programa que dadas dos listas determine que elementos tiene la primer lista que no tenga la segunda lista. **Ejemplo:**
 <center>
 <table border="1">
@@ -103,13 +184,25 @@ salida: [1, True]
 </table>
 </center>
 
+```python
+```
+#### explicacion:
+
 ### 9. Resolver el punto 7 del [taller 1](https://github.com/fegonzalez7/pdc_unal_clase8) usando operaciones con vectores.
+```python
+```
+#### explicacion:
 
 ### 10. Suponga que se tiene una lista A con ciertos números enteros. Desarrolle una función que, independientemente de los números que se encuentran en la lista A, tome aquellos números que son múltiplos de 3 y los guarde en una lista nueva, la cual debe ser **retornada** por la función. Implemente la perspectiva de un *patrón de acumulación* y también de *comprensión de listas*. **Desafío:** Si ya lo logró, inténtelo ahora sin utilizar el módulo (%). **Pista:** Un número es multiplo de 3 si la suma de sus dígitos también lo es, ¿verdad?
+```python
+```
+#### explicacion:
 
 ## Bono
 ### 11. Desarrollar un algoritmo que determine si una matriz es mágica. Se dice que una matriz cuadrada es mágica si la suma de cada una de sus filas, de cada una de sus columnas y de cada diagonal es igual.
-
+```python
+```
+#### explicacion:
 ----------------------------
 ## Condiciones de entrega:
 
