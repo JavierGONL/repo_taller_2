@@ -3,7 +3,7 @@
 <figcaption><b></b></figcaption></figure>
 </div>
 
-## Taller 2
+# Taller 2
 ----------------------------------
 
 ### 1. Desarrollar un programa que ingrese un número entero n y separe todos los digitos que componen el número. **Pista:** Utilice los operadores módulo (%) y división entera (//).
