@@ -335,10 +335,10 @@ múltiplos_3=[] #aquí se añaden los múltiplos de 3
 b=3
 def múltiplos_3_list_comprenhension(lista_A:list,b:int):
     múltiplos_3=[a for a in lista_A if ((float(a/b)-(int(a/b)))==0)]
-#aquí se revisa si la división de un número entre 3 da un resultado decimal, de darse el caso, no es múltiplo de 3
+    #aquí se revisa si la división de un número entre 3 da un resultado decimal, de darse el caso, no es múltiplo de 3
     return múltiplos_3
 def múltiplos_3_patrón_acumulación(lista_A:list,b:int):
-#en esta función, se suma 3 hasta que de el número deseado, si da, se agrega a la lista, si se pasa, no se agrega
+    #en esta función, se suma 3 hasta que de el número deseado, si da, se agrega a la lista, si se pasa, no se agrega
     múltiplos_3=[]
     for a in lista_A:
         while b<a:
