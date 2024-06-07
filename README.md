@@ -128,9 +128,9 @@ if __name__=="__main__":
         print("no se han ingresado datos válidos, por favor intente de nuevo")
 ```
 #### explicacion:
-- Tras analizar el problema, me di cuenta de que esto es una condición bidireccional, lo que en casi lenguaje matemático sería: P<->Q, -> P->Q ^ Q->P
-- Opté por la opción que es hacer menos trampa, que es convertir los números a strings, luego añadir estos carácteres a una lista, para `a` en sentido izquierda->derecha, y `b` en sentido derecha->izquierda
-- luego simplemente comparar las listas usando `==`, si ambas listas son iguales, los dos números son números espejo
+- Tras analizar el problema, me di cuenta de que esto es una condición bidireccional, lo que en casi lenguaje matemático sería: P<->Q, -> P->Q ^ Q->P .
+- Opté por la opción que es hacer menos trampa, que es convertir los números a strings, luego añadir estos carácteres a una lista, para `a` en sentido izquierda->derecha, y `b` en sentido derecha->izquierda.
+- luego simplemente comparar las listas usando `==`, si ambas listas son iguales, los dos números son números espejo.
 ----------------------------------
 ### 4. Diseñar una función que permita calcular una aproximación de la función coseno alrededor de 0 para cualquier valor x (real), utilizando los primeros n términos de la serie de Taylor. **nota:** use *math* para traer la función coseno y mostrar la diferencia entre el valor real y la aproximación. Calcule con cuántos términos de la serie (i.e: cuáles valores de n), se tienen errores del 10%, 1%, 0.1% y 0.001%.
 $$cos(x) \approx cos(x,n) \approx \sum_{i=0}^{n} (-1)^i \frac{x^{2i}}{(2i)!}$$
