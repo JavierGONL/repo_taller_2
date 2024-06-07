@@ -32,7 +32,7 @@ if __name__ == "__main__":
 ```
 #### explicacion:
 - primero cree una funcion que contaba la cantidad de digitos de la funcion, esta calcula la cantidad de digitos usando el log en base 10 del numero y a este le sumo 1
-- luego cree una funcion que segun la cantidad de digitos cae en un if que era especifico para la cantidad de digitos y el maximo era 6 , pero vi que era muy ineficiente asi que la reduci reducirla
+- luego cree una funcion que segun la cantidad de digitos cae en un if que era especifico para la cantidad de digitos y el maximo era 6 , pero vi que era muy ineficiente asi que decidi reducirla
 ```python 
 #esta era la funcion original hasta que corregi
 def separador_digitos(numero: int = "")-> str: # Se crea una función que separa los dígitos de un número, hay 6 casos, el maximo es 6  osea no soporta numeros mayores a 999999
