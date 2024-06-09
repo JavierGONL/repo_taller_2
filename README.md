@@ -245,7 +245,11 @@ if __name__ == "__main__":
     maximo_comun_divisor_recursivo_division(numeroA,numeroB)
 ```
 #### explicacion:
-- por hacer
+- para realizar el mcm con el algoritmo de euclides, hay que primero calcular el mcd , hay dos formas para calcular el mcd, una es restando al numero mayor el menor y luego el resultado entre con el numero menor a la funcion
+- la segunda forma es dividiendo el mayor numero por el menor y agarrando el residuo y metiendolo en la funcion de nuevo con numero menor, asi hasta que el residuo del numero mayor y el menor sea 0
+- para hallar el mcm es simplemente seguir la formula de mcm = ( A * B ) / mcd
+- tambien hay una funcion que calcula el mcm de forma iterativa, primero verifica cual es el mayor para guardarlo en otra variable llamada numero c ,
+  luego se entre en un bucle que lo que hace es que verifica el modulo entre los numeros a y b y si no es 0, el numero c sube 1, asi hasta que el modulo sea 0 para salir del bucle y retornar el mcm
 ----------------------------------
 ### 6. Desarrollar un programa que determine si en una lista existen o no elementos repetidos. **Pista:** Maneje valores booleanos y utilice el operador *in*.
 ```python
