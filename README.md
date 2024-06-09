@@ -195,6 +195,10 @@ if __name__ == "__main__":
     print(f"el resultado aproximado de la funcion coseno es: {funcion_coseno(numeroX,numeroN)}, el verdadero es: {math.cos(numeroX)} y el rango de error es {rango_de_error(numeroX,numeroN)}%")
 ```
 #### explicacion:
+- primero creo la funcion factorial recursivo para usarla luego
+- luego creo la funcion del rango de error que calcula el error relativo dividiendo la diferencia entre el coseno de math y el coseno de la serie de Maclaurin entre el coseno de math
+- luego se creo la funcion del coseno siguiendo la formula, la funcion toma 2 valores, el numerox y el numeroN que es el numero de iteraciones
+- luego creo una funcion llamada iterciones que crea banderas que pasan a true cuando el rango de error es el de la bandera, y luego hay un bucle que calcula el rango de error y cuando es un porcentaje especifico entra en un if y pasa una bandera a true, asi hasta que llege al error minimo que buscamos
 ----------------------------------
 ### 5. Desarrollar un programa que permita determinar el Minimo Comun Multiplo de dos numeros enteros. Abordar el problema desde una perpectiva tanto iterativa como recursiva. **Pista:** Puede ser de utilidad chequear el [Algoritmo de Euclides](https://es.wikipedia.org/wiki/Algoritmo_de_Euclides) para el cálculo del Máximo Común Divisor, y revisar cómo se relaciona este último con el Mínimo Común Múltiplo.
 ```python
