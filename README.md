@@ -71,7 +71,7 @@ def separador_digitos(numero: int = "")-> str: # Se crea una función que separa
         print(f"El número {numero} tiene seis dígitos y son: {primerDigito}, {segundoDigito}, {tercerDigito}, {cuartoDigito}, {quintoDigito} y {sextoDigito}")
     # se podria ampliar mas pero dejare asi es suficiente para lo que se pide
 ```
--  cree la funcion reducida separar_digitos que basandose en si es impar se aplica la funcion (numero // 10**(i-1)%10) que recortaba primero los numeroes desde la izquierda y luego desde la derecha hasta el numero i si la funcion era par utilizaba esta otra funcion ((numero % 10**(i)) // 10**(i-1)) que recortaba la funcion por la derecha hasta el numero i y luego la recortaba por la izquierda hasta el numero i
+-  cree la funcion reducida separar_digitos que basandose en si es impar se aplica la funcion `(numero // 10**(i-1)%10)` que recortaba primero los numeroes desde la izquierda y luego desde la derecha hasta el numero `i` si la funcion era par utilizaba esta otra funcion `((numero % 10**(i)) // 10**(i-1))` que recortaba la funcion por la derecha hasta el numero `i` y luego la recortaba por la izquierda hasta el numero `i`
 - luego cree un for que unia en un texto separado por un espacio los digitos que estaban en la lista digitos
 -----------------------------------
 ### 2. Desarrollar un programa que ingrese un número flotante n y separe su parte entera de la parte decimal, y luego entregue los dígitos tanto de la parte entera como de la decimal.
@@ -87,7 +87,7 @@ if __name__ == "__main__":
     separador_de_digitos(numeroFloat)
 ```
 #### explicacion:
-- cree la funcion que para la parte entera del numero simplemente hace la division entera del numero entre 1 (n//1) y para la parte decimal le resto al numero original la parte entera y me devuelve solamente la parte decimal
+- cree la funcion que para la parte entera del numero simplemente hace la division entera `(n//1)` y para la parte decimal le resto al numero original la parte entera y me devuelve solamente la parte decimal
 ----------------------------------
 ### 3. Desarrollar un programa que permita ingresar dos números enteros y determinar si se tratan de números espejos, definiendo números espejos como dos números a y b tales que a se lee de izquierda a derecha igual que se lee b de derecha a izquierda, y viceversa.
 ```python
@@ -251,7 +251,7 @@ if __name__ == "__main__":
 #### explicacion:
 - para realizar el mcm con el algoritmo de euclides, hay que primero calcular el mcd , hay dos formas para calcular el mcd, una es restando al numero mayor el menor y luego el resultado entre con el numero menor a la funcion
 - la segunda forma es dividiendo el mayor numero por el menor y agarrando el residuo y metiendolo en la funcion de nuevo con numero menor, asi hasta que el residuo del numero mayor y el menor sea 0
-- para hallar el mcm es simplemente seguir la formula de mcm = ( A * B ) / mcd
+- para hallar el mcm es simplemente seguir la formula de `mcm = ( A * B ) / mcd`
 - tambien hay una funcion que calcula el mcm de forma iterativa, primero verifica cual es el mayor para guardarlo en otra variable llamada numero c ,
   luego se entre en un bucle que lo que hace es que verifica el modulo entre los numeros a y b y si no es 0, el numero c sube 1, asi hasta que el modulo sea 0 para salir del bucle y retornar el mcm
 ----------------------------------
