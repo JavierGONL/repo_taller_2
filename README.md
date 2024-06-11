@@ -343,8 +343,33 @@ salida: [1, True]
 </center>
 
 ```python
+from Punto_6 import adicionlistanoarreglo
+#importamos la funcion de listas
+if __name__=="__main__":
+    a:list=[]
+    b:list=[]
+    q:list=[]
+    #creamos 3 listas las 2 iniciales y la resultante
+    adicionlistanoarreglo(a,True)
+    adicionlistanoarreglo(b,False)
+    #agreagamos los valroes a las listas
+    for i in a:
+        #recorremos la primera lista
+        if i in b:
+            #si el valor de la primera lista esta en la segunda se salta
+            continue
+        q.append(i)
+        #en caso contrario se agrega a la lista resultante
+    print("La lista resultante es: "+str(q))
+    #se muestra el resultado
 ```
 #### explicacion:
+- Importamos la funcion del punto 6
+- Creamos 3 listas, 2 para evaluar y una tercera que sera el resultado del ejercicio
+- Aplicamos la funcion en las 2 primeras, cada una con sus 2 posibles valores booleanos para que tenga sentido la informacion
+- Recorremos la primera lista con un For
+- Dentro del for evaluamos si el valor pertenece a la segunda lista, en tal caso lo añadimos a la lista resultante
+- Recorridos todos los valores imprimimos la lista resultante de forma comprensible
 ----------------------------------
 ### 9. Resolver el punto 7 del [taller 1](https://github.com/fegonzalez7/pdc_unal_clase8) usando operaciones con vectores.
 ```python
