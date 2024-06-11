@@ -296,8 +296,34 @@ if __name__=="__main__":
 ----------------------------------
 ### 7. Desarrollar un programa que determine si en una lista se encuentra una cadena de caracteres con dos o más vocales. Si la cadena existe debe imprimirla y si no existe debe imprimir 'No existe'.
 ```python
+from Punto_6 import adicionlistanoarreglo
+#Importamos la funcion del punto 6
+if __name__ == "__main__":
+    o:list=[]
+    q:list=["A","E","I","O","U","a","e","i","o","u"]
+    #Declaramos la lista a evaluar y otra con las posibles vocales
+    adicionlistanoarreglo(o,False)
+    #aplicamos la funcion
+    for i in o:
+        l:int=0
+        #un for para recorrer los valores de la lista y declaramos una variable que regrese a cero a pasar al siguiente valor
+        for j in i:
+            #otro for para recorrer la cadena
+            if j in q: 
+                #si el valor pertenece a la lista de vocales se lesuma 1 a l
+                l=l+1
+            #ya con toda la cadena recorrida evaluamos el valor resultante de l antes de pasar a la siguiente cadena
+        if l==1: print("La palabra "+i+" tiene "+str(l)+" vocal")
+        elif l>1: print("La palabra "+i+" tiene "+str(l)+" vocales")
+        else: print("En "+i+" no existen vocales o no es una cadena")
 ```
 #### explicacion:
+- Importamos la funcion para añadir listas del punto 6
+- en el codigo creamos 2 listas, una en la que se aplicara la funcion y otra que contenga todas las vocales posibles (mayusculas y minusculas)
+- con un for recorremos la lista, dentro de este declaramos una variable l como 0 para que por cada dato de la lista se reincie este valor a 0
+- con otro for recorremos el dato, en este caso cadenas
+- si la letra de la cadena pertenece a nuestro grupo de vocales se le sumara 1 a nuestra variable l
+- Cuando acabe de recorrer la cadena se evaluara l antes de pasar a la siguiente, dandonos el respectivo numero de vocales que contiene  
 ----------------------------------
 ### 8. Desarrollar un programa que dadas dos listas determine que elementos tiene la primer lista que no tenga la segunda lista. **Ejemplo:**
 <center>
