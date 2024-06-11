@@ -257,8 +257,42 @@ if __name__ == "__main__":
 ----------------------------------
 ### 6. Desarrollar un programa que determine si en una lista existen o no elementos repetidos. **Pista:** Maneje valores booleanos y utilice el operador *in*.
 ```python
+def adicionlistanoarreglo(l:list,k:bool):
+    # Se crea una funcion para agregar listas
+    i=1
+    while i==1:
+        e= input("ingresa un dato para la lista:")
+        l.append(e)
+        i=int(input("deseas ingresar otro dato? (1, cualquier otro numero para no)"))
+    if k==True: print("nuestra primera lista fue: "+ str(l)+ ", la siguiente lista no debe tener mas de "+ str(len(l))+" elementos")
+    else: print("nuestra lista fue: "+ str(l)+ ", tiene "+ str(len(l))+" elementos.")
+    #2 opciones que solo cambian el mensaje de salida, para que tenga coherencia si se usa en ejercicos que necesiten 2 listas
+if __name__=="__main__":
+    p:bool=False
+    lista1=[]
+    lista2=[]
+    adicionlistanoarreglo(lista1,False)
+    for i in lista1:
+        #para los valores de la lista evaluamos cuantas veces se repiten en la propia lista con el metodo count
+        if lista1.count(i)!=1 and i in lista2!=True:
+            print("Hay valores repetidos, siendo el numero "+str(i)+" el cual se repite "+str(lista1.count(i))+" veces")
+            lista2.append(i)
+            p=True
+        #usamos un booleando para informar si hay o no valores repetidos ademas de agregar a los valores que pasen por una lista auxiliar para evitar que se repita el mensaje
+    if p==True: 
+        print("en la lista hay valores repetidos")
+    else:
+        print("No hay valores repetidos")
+
 ```
 #### explicacion:
+- Declaramos una funcion a la cual recurriremos para añadir listas en este y los proximos puntos (6,7,8), esta funcion esta preparada para en caso de usar uno u otro valor booleando informar que es la primera de una cantidad de listas que se deba añadir o que es una lista individual
+- Ya en el codigo en si declaramos  2 listas y 1 variable, las listas seran aquella que se evaluara y una auxiliar para evaluar los valores mientras que la variable sera un booleano
+- Aplicamos la funcion en la lista 1 para añadir cuantos valores se quieran
+- Aplicamos un For para recorrer todos los valores de la lista 1
+- Dentro del for evaluamos el lista.count de nuestra lista, si este es diferente a 1 (y no hace parte de la segunda lista) este valor se repite mas de 1 vez en la lista
+- Añadimos el valor a la segunda lista y el valor booleano lo declaramos como verdadero, de esta forma si el valor pertenece a la segunda lista no entrara a la condicional if
+- Evaluados los valores preparamos un condicional para informar si hubieron o no valores repetidos
 ----------------------------------
 ### 7. Desarrollar un programa que determine si en una lista se encuentra una cadena de caracteres con dos o más vocales. Si la cadena existe debe imprimirla y si no existe debe imprimir 'No existe'.
 ```python
