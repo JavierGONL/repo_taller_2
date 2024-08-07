@@ -91,21 +91,44 @@ if __name__ == "__main__":
 ----------------------------------
 ### 3. Desarrollar un programa que permita ingresar dos números enteros y determinar si se tratan de números espejos, definiendo números espejos como dos números a y b tales que a se lee de izquierda a derecha igual que se lee b de derecha a izquierda, y viceversa.
 ```python
+#la siguiente función se basa en algo que se supone que no hemos visto, pero nos dejaron usar en el taller 1, y ayuda a que al programa no le hagan trampita, así que ahí va
 def verificador(a:str,b:str):
     if (a.isdigit() and b.isdigit()): #no existen los números espejo negativos, ya que al leer de derecha a izquierda el símbolo "-" queda de últimas
         return True
     else:
         return False
-def operador_a(a:str):
+#la parte del código que viene a continuación es un derivado de los ejercicios que se hicieron en clase para puntos extra en el examen
+#yo no los logré hacer en clase
+#pero ahora sí en casita y con más calma lo logré, entonces haré el código decentemente
+def operador_a(a:int):
     lista_a=[]
-    for d in range(len(a)):
-        lista_a.append(a[d])
+    entrada=a
+    longitud=0
+    entrada_1=entrada
+    while entrada_1>0:
+        entrada_1//=10
+        longitud+=1
+    while longitud>0:
+        cifra=entrada//10**(longitud-1)
+        cifra=cifra%10
+        longitud-=1
+        lista_a.append(cifra)
     return lista_a
-def operador_b(b:str):
-    b=str(b)
+#la siguiente función es parecida a la anterior, solo que el proceso de sacar cifras se invierte
+def operador_b(b:int):
     lista_b=[]
-    for c in range(len(b)-1,-1,-1):
-        lista_b.append(b[c])
+    entrada=b
+    longitud=0
+    entrada_1=entrada
+    while entrada_1>0:
+        entrada_1//=10
+        longitud+=1
+    longitud_1=0
+    while longitud_1<longitud:
+        cifra_2=entrada//10**(longitud_1)
+        cifra_2=cifra_2%10
+        longitud_1+=1
+        lista_b.append(cifra_2)
     return lista_b
 def juzgador(lista_a:list,lista_b:list):
     if lista_a==lista_b:
@@ -117,6 +140,9 @@ if __name__=="__main__":
     b=input("introduzca su segundo número:")
     verificar=verificador(a,b)
     if verificar==True:
+        a=int(a)
+        b=int(b)
+        print(a+b)
         lista_a=operador_a(a)
         lista_b=operador_b(b)
         juicio=juzgador(lista_a,lista_b)
@@ -129,8 +155,8 @@ if __name__=="__main__":
 ```
 #### explicacion:
 - Tras analizar el problema, me di cuenta de que esto es una condición bidireccional, lo que en casi lenguaje matemático sería: P<->Q, -> P->Q ^ Q->P .
-- Opté por la opción que es hacer menos trampa, que es convertir los números a strings, luego añadir estos carácteres a una lista, para `a` en sentido izquierda->derecha, y `b` en sentido derecha->izquierda.
-- luego simplemente comparar las listas usando `==`, si ambas listas son iguales, los dos números son números espejo.
+- Lo que procede aquí es extraer las cifras de los números, sin usar strings(porque se supone que no lo hemos visto ;) ). Este proceso se hace para a en sentido izquierda->derecha, y b en sentido derecha->izquierda
+- Luego comparar las listas usando ==
 ----------------------------------
 ### 4. Diseñar una función que permita calcular una aproximación de la función coseno alrededor de 0 para cualquier valor x (real), utilizando los primeros n términos de la serie de Taylor. **nota:** use *math* para traer la función coseno y mostrar la diferencia entre el valor real y la aproximación. Calcule con cuántos términos de la serie (i.e: cuáles valores de n), se tienen errores del 10%, 1%, 0.1% y 0.001%.
 $$cos(x) \approx cos(x,n) \approx \sum_{i=0}^{n} (-1)^i \frac{x^{2i}}{(2i)!}$$
