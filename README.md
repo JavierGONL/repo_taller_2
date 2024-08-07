@@ -473,7 +473,7 @@ if __name__=="__main__":
     print("los múltiplos de 3 obtenidos de la lista usando patrones de acumulación son: ",múltiplos_3_a)
 ```
 #### explicacion:
-- Aunque no se emplea la perspectiva sugerida por el docente, tanto la list comprenhension (descartar números haciendo "división entera" sin usar `%`) como los patrones de acumulación (sumar de a 3 hasta que resulte el número deseado y agregarlo a una lista, y si se pasa descartarlo) brindan el mismo resultado.
+- Aunque no se emplea la perspectiva sugerida por el docente(primero intentarlo usando el módulo de división entera), tanto la list comprenhension (descartar números haciendo "división entera" sin usar `%`) como los patrones de acumulación (sumar de a 3 hasta que resulte el número deseado y agregarlo a una lista, y si se pasa descartarlo) brindan el mismo resultado.
 ----------------------------------
 ## Bono
 ### 11. Desarrollar un algoritmo que determine si una matriz es mágica. Se dice que una matriz cuadrada es mágica si la suma de cada una de sus filas, de cada una de sus columnas y de cada diagonal es igual.
